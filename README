@@ -1,0 +1,52 @@
+About this WattRate fork
+------------------------
+This WattRate fork shows either:
+(3h5m) when you are charging
+(Time to full)
+or
+3h5m when you are discharging
+(Time to empty)
+
+It only supports one battery.
+
+My KDE 4.14.2 enhanced battery monitor (probably powermanagement dataengine fault)
+was not showing remaining time at all.
+
+So this is a workaround which queries upower itself directly via dbus.
+
+Original WattRate which was designed with showing consumption in mind can be found at:
+
+http://kde-look.org/content/show.php?content=142741
+
+Plasma Applet Template
+----------------------
+
+You need KDE 4.2
+
+-- Build instructions --
+
+cd where_pkg_is_extracted
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ../
+make 
+make install
+
+(your $KDEDIRS is where you install your KDE 4)
+
+Restart plasma to load the applet 
+kquitapp plasma-desktop
+plasma-desktop
+
+or view it with 
+plasmoidviewer wattrate
+
+You might need to run kbuildsycoca4
+in order to get the .desktop file recognized.
+
+-- Tutorials and resources --
+The explanation of the template
+http://techbase.kde.org/index.php?title=Development/Tutorials/Plasma/GettingStarted
+
+Plasma techbase pages
+http://techbase.kde.org/Projects/Plasma
